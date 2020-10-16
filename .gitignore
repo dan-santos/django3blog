@@ -1,0 +1,5 @@
+venv
+
+blog/blog/__pycache__/
+blog/blog/settings.py
+blog/blog/__init__.py

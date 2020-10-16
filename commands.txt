@@ -1,0 +1,15 @@
+- Criar projeto django:
+django-admin startproject blog
+
+- Rodar projeto:
+python manage.py runserver
+
+* Notas: 
+ASGI eh uma evolucao de WSGI que permite o django rodar de forma assincrona, aumentando muito o desempenho dele
+O django ja vem por padrao com algumas tabelas pre criadas no sqlite, como user e group
+
+- Realizar migracoes
+python manage.py migrate
+
+- Criar super usuario
+python manage.py createsuperuser nome (admin admin)
