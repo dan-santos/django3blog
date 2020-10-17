@@ -7,9 +7,21 @@ python manage.py runserver
 * Notas: 
 ASGI eh uma evolucao de WSGI que permite o django rodar de forma assincrona, aumentando muito o desempenho dele
 O django ja vem por padrao com algumas tabelas pre criadas no sqlite, como user e group
+Alem disso, o django ja adiciona um campo "ID" PK auotincrement em todo model criado
+
+[Models]
+Após alterar ou criar models em qualquer parte do projeto, devemos executar os seguintes codigos:
+python manage.py makemigrations: cria as tabelas
+python manage.py migrate: aplica as tabelas ao projeto para que possamos de fato usa-las
 
 - Realizar migracoes
 python manage.py migrate
 
 - Criar super usuario
 python manage.py createsuperuser nome (admin admin)
+
+- Criar app:
+python manage.py startapp nome_do_app
+
+- Listar comandos do manage.py
+python manage.py
