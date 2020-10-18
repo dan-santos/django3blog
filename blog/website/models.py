@@ -10,3 +10,9 @@ class Post(models.Model):
     title = models.CharField(max_length=100)
     subtitle = models.CharField(max_length=200)
     content = models.TextField()
+
+    def __repr__(self):
+        return self.title
+
+    def __str__(self):
+        return self.__repr__()
