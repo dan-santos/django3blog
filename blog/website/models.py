@@ -24,9 +24,10 @@ class Post(models.Model):
         default=Categories.GR # setando qual dos marcadores do enum sera o padrao
     )
 
+    approved = models.BooleanField(default=True) # recebe TRUE ou FALSE
+
     def __repr__(self):
         return self.title
 
     def __str__(self):
         return self.__repr__()
-
