@@ -23,8 +23,9 @@ class Post(models.Model):
         choices=Categories.choices, # setando o enum
         default=Categories.GR # setando qual dos marcadores do enum sera o padrao
     )
-
     approved = models.BooleanField(default=True) # recebe TRUE ou FALSE
+    # null e blank serve para dizer ao django que o campo nao eh obrigatorio
+    image = models.ImageField(upload_to='posts', null=True, blank=True)
 
     def __repr__(self):
         return self.title
