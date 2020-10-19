@@ -32,3 +32,15 @@ class Post(models.Model):
 
     def __str__(self):
         return self.__repr__()
+
+# form
+class Contact(models.Model):
+    name = models.CharField(max_length=150)
+    email = models.EmailField()
+    message = models.TextField()
+
+    def __repr__(self):
+        return self.name
+
+    def __str__(self):
+        return self.__repr__()

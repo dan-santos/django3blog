@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Post
+from .models import Post, Contact
 
 # a funcao "render" renderiza um template para devolver ao browser
 # os templates devem ficar sempre na pasta "templates" do app em questao
@@ -27,3 +27,12 @@ def hello_blog(request):
 def post_detail(request, id):
     post = Post.objects.get(id=id) # Pega o post com o id passado por parametro
     return render(request, 'post_detail.html', {'post': post})
+
+def save_form(request):
+    name=request.POST['name']
+    Contact.objects.create(
+        name=name, 
+        email=request.POST['email'], 
+        message=request.POST['message']
+    )
+    return render(request, 'contact_success.html', {'name_contact': name})

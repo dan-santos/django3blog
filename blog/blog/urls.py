@@ -27,5 +27,5 @@ urlpatterns = [
     # o include linka o endereco url com uma serie de outras urls de um app especifico
     path('admin/', admin.site.urls),
     path('hello/', hello_world),
-    path('blog/', include('website.urls'))
+    path('', include('website.urls'))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

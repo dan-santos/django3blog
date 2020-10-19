@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Post
+from .models import Post, Contact
 
 
 class PostAdmin(admin.ModelAdmin):
@@ -22,6 +22,11 @@ class PostAdmin(admin.ModelAdmin):
         # soh ira listar os posts aprovados
         # return Post.objects.filter(approved=True)
 
+class ContactAdmin(admin.ModelAdmin):
+    list_display = ['name', 'email']
+    search_fields = ['name', 'email', 'message']
+
 # Register your models here.
 # Isto eh, sempre que quisermos que os models aparecam na pagina do admin, precisamos registra-los aqui, dessa forma:
 admin.site.register(Post, PostAdmin)
+admin.site.register(Contact, ContactAdmin)
