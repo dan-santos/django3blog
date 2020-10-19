@@ -11,7 +11,9 @@ def hello_blog(request):
 
     # Mais intrucoes de uso no arquivo index.html
     lista = ['Python', 'Django', 'Linux']
-    list_posts = Post.objects.all() # equivalente a select all
+    # list_posts = Post.objects.all() # equivalente a select all
+    #Soh retornara posts aprovados
+    list_posts = Post.objects.filter(approved=True)
     
     data = {
         'name': 'Curso de Django 3', 

@@ -18,9 +18,9 @@ class PostAdmin(admin.ModelAdmin):
     # override do ModelAdmin
     # com essa funcao, podemos escolher o que mostrar na lista de posts, isto eh, definir condicioes para 
     # cada post para que o django mostre (ou nao) ele
-    def get_queryset(self, request):
+    # def get_queryset(self, request):
         # soh ira listar os posts aprovados
-        return Post.objects.filter(approved=True)
+        # return Post.objects.filter(approved=True)
 
 # Register your models here.
 # Isto eh, sempre que quisermos que os models aparecam na pagina do admin, precisamos registra-los aqui, dessa forma:
