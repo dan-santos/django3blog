@@ -22,3 +22,8 @@ def hello_blog(request):
     }
 
     return render(request, 'index.html', data)
+
+
+def post_detail(request, id):
+    post = Post.objects.get(id=id) # Pega o post com o id passado por parametro
+    return render(request, 'post_detail.html', {'post': post})
