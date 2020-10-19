@@ -1,6 +1,7 @@
 venv
 
 blog/blog/settings.py
+blog/media/
 
 **/__init__.py
 **/__pycache__

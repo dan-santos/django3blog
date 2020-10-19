@@ -38,7 +38,8 @@
                                 <h4>{{ post.subtitle }}</h4>
                             </header>
                             <p>{{ post.content }}</p>
-                            <img src="{{ post.image.url }}" alt="">
+                            {%  %}
+                            <img src="{{ post.image.url }}" alt="" width="700px" height="500px">
                             <ul class="actions">
                                 <li><a href="#" class="button">{{ post.get_categories_display }}</a></li>
                                 <li><a href="{% url 'home_blog' %}" class="button">Voltar</a></li>

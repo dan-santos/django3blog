@@ -17,10 +17,15 @@ from django.contrib import admin
 from django.urls import path, include
 from .views import hello_world
 
+# imports necessarios para a adicao de media nos posts
+# (adicao feita no fim da lista urlpatterns)
+from django.conf import settings
+from django.conf.urls.static import static
+
 urlpatterns = [
     # toda url precisa estar necessariamente linkada com uma view
     # o include linka o endereco url com uma serie de outras urls de um app especifico
     path('admin/', admin.site.urls),
     path('hello/', hello_world),
     path('blog/', include('website.urls'))
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

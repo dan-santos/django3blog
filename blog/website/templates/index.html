@@ -49,7 +49,11 @@
 						<div class="row">
 							{% for post in posts %}
 								<article class="col-6 col-12-xsmall work-item">
-									<a href="{% static 'images/fulls/01.jpg' %}" class="image fit thumb"><img src="{% static 'images/thumbs/01.jpg' %}" alt="" /></a>
+									{% if post.image %}
+										<a href="{{ post.image.url }}" class="image fit thumb"><img src="{{ post.image.url }}" alt="" width="90px" height="110px"/></a>
+									{% else %}
+									<a href="{% static 'images/fulls/01.jpg' %}" class="image fit thumb"><img src="{% static 'images/fulls/01.jpg' %}" alt="" width="90px" height="110px"/></a>
+									{% endif %}
 									<h3>{{ post.title }}</h3>
 									<p>{{ post.subtitle }}</p>
 									<span>{{ post.get_categories_display }}</span>
