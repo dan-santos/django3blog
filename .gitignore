@@ -1,6 +1,5 @@
 venv
 
-base.py
 blog/media/
 blog/db.sqlite3
 
