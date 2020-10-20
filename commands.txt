@@ -1,15 +1,16 @@
+[DJANGO]
+* Notas: 
+ASGI eh uma evolucao de WSGI que permite o django rodar de forma assincrona, aumentando muito o desempenho dele
+O django ja vem por padrao com algumas tabelas pre criadas no sqlite, como user e group
+Alem disso, o django ja adiciona um campo "ID" PK auotincrement em todo model criado
+
 - Criar projeto django:
 django-admin startproject blog
 
 - Rodar projeto:
 python manage.py runserver
 
-* Notas: 
-ASGI eh uma evolucao de WSGI que permite o django rodar de forma assincrona, aumentando muito o desempenho dele
-O django ja vem por padrao com algumas tabelas pre criadas no sqlite, como user e group
-Alem disso, o django ja adiciona um campo "ID" PK auotincrement em todo model criado
-
-[Models]
+* Models
 Após alterar ou criar models em qualquer parte do projeto, devemos executar os seguintes codigos:
 python manage.py makemigrations: cria as tabelas
 python manage.py migrate: aplica as tabelas ao projeto para que possamos de fato usa-las
@@ -27,5 +28,47 @@ python manage.py startapp nome_do_app
 python manage.py
 
 [GIT]
-Remover arquivos que ja foram adicionados
+-Remover arquivos que ja foram adicionados
 git rm --cached arquivo
+
+[PIP]
+- Construir o requirements.txt:
+pip freeze > requirements.txt
+
+[HEROKU]
+ASSEGURAR QUE O REQUIREMENTS ESTA NA PASTA DO APP
+
+- Logar
+heroku login
+
+- Criar um app
+heroku create nome-do-app --buildpack heroku/python
+
+- Setando para o heroku qual app estamos nos referenciando:
+git init
+heroku git:remote -a nome-do-app
+
+- Configurar as variaveis de ambiente
+heroku config:set
+ALLOWED_HOSTS=link que o heroku printou no terminal na hora da criacao do app
+DJANGO_SETTINGS_MODULE=blog.settings.heroku
+SECRET_KEY=
+DEBUG=False
+
+- Criar banco de dados no heroku
+heroku addons:create heroku-postgresql:hobby-dev
+
+- Subir o heroku
+git push heroku master
+
+- Iniciar o site 
+heroku open
+
+- Criar superuser no admin do django (com ele producao)
+heroku run python manage.py createsuperuser
+
+- Iniciar o bash do django (producao)
+Se fizermos isso, conseguimos executar todos os comandos que conseguiriamos executar com o django rodando localmente
+heroku run bash (ctrl+d sai)
+
+

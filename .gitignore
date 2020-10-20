@@ -1,4 +1,5 @@
 venv
+key.txt
 
 blog/media/
 blog/db.sqlite3
