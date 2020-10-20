@@ -1,7 +1,8 @@
 venv
 
-blog/blog/settings.py
+base.py
 blog/media/
+blog/db.sqlite3
 
 **/__init__.py
 **/__pycache__
